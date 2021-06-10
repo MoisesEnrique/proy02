@@ -1,6 +1,9 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Personas
 
-admin.site.register(Personas)
+##importamos la clase persona definida en models
+from .models import Persona
+
+##dentro de admin reconozca la tabla persona	
+admin.site.register(Persona)
