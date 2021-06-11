@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -5,10 +6,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link type="text/css" rel="stylesheet" href="{% static 'css/estilo.css' %}"/>
 </head>
 <body>
     <h1>Hola Mundo desde HTML y Templates</h1>
     <h2>Probando</h2>
+
+    <div id="parrafo1">
+
+        <h3>Grupo 1</h3>
+        <p>Este bloque tiene definido el texto de color rojo.</p>
+     
+     </div>
+     
+     <div id="parrafo2">
+     
+        <h3>Grupo 2</h3>
+        <p>Este bloque tiene definido el texto de color verde.</p>
+     
+     </div>
+     
 
     /* variable */
     Usuario: {{ request.user }}
