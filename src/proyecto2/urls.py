@@ -18,9 +18,13 @@ from django.urls import path
 
 #importamos la funcion myHomeView desde inicio/views.py
 from inicio.views import myHomeView
+from inicio.views import anotherView
+from inicio.views import primeraView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     #añadimos otro path vacio, para que llame la pagina de inicio
-    path('', myHomeView, name="Pagina de Inicio")
+    path('', myHomeView, name="Pagina de Inicio"),
+    path('another/', anotherView, name="Pagina Segunda"),
+    path('primera/', primeraView, name="Pagina Primera"),
 ]
