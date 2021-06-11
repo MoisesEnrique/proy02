@@ -9,5 +9,12 @@
 <body>
     <h1>Hola Mundo desde HTML y Templates</h1>
     <h2>Probando</h2>
+
+    /* variable */
+    Usuario: {{ request.user }}
+
+    <br>
+    ¿Esta autenticado?: {{ request.user.is_authenticated }}
+
 </body>
 </html>
