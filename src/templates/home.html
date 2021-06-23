@@ -18,16 +18,18 @@
          <br>
 
       <h3>
-         {{ myText }}   
+         {{ myText | upper | truncatechars:"16" }}   
          <br>        
          {{ myNumber }}
       </h3>
 
       <ul>
          {% for myItem in myList %}
-         <li> {{ forloop.counter }} - {{ myItem }} 
+         <li> {{ forloop.counter }} - {{ myItem|add:2 }} 
             {% if myItem == 33 %}
                - Este numero es mágico
+            {% elif myItem|divisibleby:2 %}
+               - Este numero es par
             {% elif myItem > 60 %}
                - Este numero es mayor que 60
             {% endif %}
