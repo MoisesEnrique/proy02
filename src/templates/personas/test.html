@@ -1,0 +1,14 @@
+{% estends base.html %} 
+
+{% block content %} 
+    <h1> {{ nombre }}</h1>    
+    <h2>
+    {% if edad > 40 %} 
+        Debe cuidarse del colesterol
+    {% else %} 
+        Puede comer lo que quiera
+    {% endif %} 
+
+    </h2>
+
+{% endblock %} 
