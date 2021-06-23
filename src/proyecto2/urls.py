@@ -22,6 +22,7 @@ from inicio.views import anotherView
 from inicio.views import primeraView
 from personas.views import personaTestView
 from personas.views import personaCreateView
+from personas.views import searchForHelp
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,5 +32,6 @@ urlpatterns = [
     path('primera/', primeraView, name="Pagina Primera"),
     path('persona/', personaTestView, name="persona"),
     path('agregar/', personaCreateView, name="crear persona"),
+    path('search/', searchForHelp, name="buscar"),
 ]
 

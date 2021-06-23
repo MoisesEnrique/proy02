@@ -30,3 +30,7 @@ def personaCreateView(request):
     }
 
     return render(request, 'personasCreate.html', context)
+
+#definimos la vista para search.html
+def searchForHelp(request):
+    return render(request, 'search.html', {})
