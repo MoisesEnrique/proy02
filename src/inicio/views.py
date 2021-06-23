@@ -7,7 +7,15 @@ from django.http import HttpResponse
 
 #Definimos una funcion que va a hacer la interfaz(controlador) entre el modelo y el template
 def myHomeView(request, *args, **kwargs):
-    return render(request, "home.html", {})
+
+    #definimos un  dicionario cualquiera
+    myContext = {
+        'myText' : "Esto es sobre nosotros",
+        'myNumber' : 123,
+        'myList' : [33, 54, 67, 87]
+    }
+
+    return render(request, "home.html", myContext)
 
 def anotherView(request, *args, **kwargs):
     return HttpResponse('<h1>Hola mundo de otra Pagina</h1>')

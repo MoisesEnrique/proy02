@@ -6,15 +6,36 @@
     <div id="parrafo1">
 
         <h3>Grupo 1</h3>
-        <p>Este bloque tiene definido el texto de color rojo.</p>
+        <p>Este un texto.</p>
      
      </div>
      
      <div id="parrafo2">
      
-        <h3>Grupo 2</h3>
-        <p>Este bloque tiene definido el texto de color verde.</p>
+         <h3>Grupo 2</h3>
+         <p>Este un texto.</p>
+
+         <br>
+
+      <h3>
+         {{ myText }}   
+         <br>        
+         {{ myNumber }}
+      </h3>
+
+      <ul>
+         {% for myItem in myList %}
+         <li> {{ forloop.counter }} - {{ myItem }} 
+            {% if myItem == 33 %}
+               - Este numero es mágico
+            {% elif myItem > 60 %}
+               - Este numero es mayor que 60
+            {% endif %}
+         </li> 
+         {% endfor %}
+      </ul>
      
      </div>
+
 
 {% endblock %}
