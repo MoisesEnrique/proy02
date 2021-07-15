@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 
 #importamos los modelos de persona
 from .models import Persona
@@ -23,7 +23,7 @@ def personaTestView(request):
 
 #definimos una vista para el formulario
 def personaCreateView(request):
-    #definimos los campos iniciales del formulario
+    #definimos los campos iniciales del formulario para nombres y edad
     initialValues = {
         'nombres':'Sin Nombre',
         'edad':'25'
@@ -60,3 +60,11 @@ def personaAnotherCreateView(request):
         'form':form,
     }
     return render(request, 'personasCreate.html', context)
+
+def personasShowObject(request, myID): #recibe el iD
+    obj = get_object_or_404(Persona, id=myID)   #Linea que muestra un error contrlado si no eencuentra el id
+    context = {
+        'objeto':obj,
+    }
+    return render(request, "descripcion.html", context)
+

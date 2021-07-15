@@ -24,6 +24,8 @@ from personas.views import personaTestView
 from personas.views import personaCreateView
 from personas.views import searchForHelp
 from personas.views import personaAnotherCreateView
+from personas.views import personasShowObject
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -35,5 +37,8 @@ urlpatterns = [
     path('agregar/', personaCreateView, name="crear persona"),
     path('search/', searchForHelp, name="buscar"),
     path('anotherAdd/', personaAnotherCreateView, name="otro crear personas"),
+    path('showPersona/<int:myID>', personasShowObject, name="ver persona"), #recibe el parametro ID
 ]
+
+
 
