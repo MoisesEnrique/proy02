@@ -23,7 +23,14 @@ def personaTestView(request):
 
 #definimos una vista para el formulario
 def personaCreateView(request):
-    form = PersonaForm(request.POST or None)
+    #definimos los campos iniciales del formulario
+    initialValues = {
+        'nombres':'Sin Nombre',
+        'edad':'25'
+    }
+
+    obj = Persona.objects.get(id=2) #Creamos una variable que guarde los datos de una persona, en este caso con id = 2
+    form = PersonaForm(request.POST or None, instance=obj, initial=initialValues) #le enviamos la instancia del objeto con clave 2
     if form.is_valid(): #Si todo esta completo lo grabe
         form.save()
         form = PersonaForm()  #Cargar de nuevo el formulario /blanquear los campos
