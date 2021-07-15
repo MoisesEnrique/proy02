@@ -1,4 +1,4 @@
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, redirect, render
 
 #importamos los modelos de persona
 from .models import Persona
@@ -68,3 +68,15 @@ def personasShowObject(request, myID): #recibe el iD
     }
     return render(request, "descripcion.html", context)
 
+def personasDeleteView(request, myID):
+    obj = get_object_or_404(Persona, id=myID)
+
+    if request.method == 'POST':
+        print("lo borro")
+        obj.delete()
+        return redirect('../../..')
+    context = {
+        'object':obj,
+    }
+
+    return render(request, 'deletePersona.html', context)
