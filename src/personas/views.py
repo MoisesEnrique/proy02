@@ -66,7 +66,7 @@ def personasShowObject(request, myID): #recibe el iD
     context = {
         'objeto':obj,
     }
-    return render(request, "descripcion.html", context)
+    return render(request, "showPersonas.html", context)
 
 def personasDeleteView(request, myID):
     obj = get_object_or_404(Persona, id=myID)
@@ -74,9 +74,17 @@ def personasDeleteView(request, myID):
     if request.method == 'POST':
         print("lo borro")
         obj.delete()
-        return redirect('../../..')
+        return redirect('../../')  #Retrocediendo 2 niveles en la urll para mostrar la lista de usuarios
     context = {
         'object':obj,
     }
 
     return render(request, 'deletePersona.html', context)
+
+def personasListView(request):
+    queryset = Persona.objects.all()
+    context = {
+        'objectList':queryset,
+    }
+
+    return render(request, 'showPersonas.html', context)
