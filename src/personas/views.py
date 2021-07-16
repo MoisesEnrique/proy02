@@ -9,6 +9,8 @@ from .forms import PersonaForm
 #importamos el nuevo formulario plano que creamos
 from .forms import RawPersonaForm
 
+
+
 # Create your views here.
 # creamos la vista 
 def personaTestView(request):
@@ -86,5 +88,4 @@ def personasListView(request):
     context = {
         'objectList':queryset,
     }
-
     return render(request, 'showPersonas.html', context)

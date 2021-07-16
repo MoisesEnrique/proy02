@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 class Persona(models.Model):
@@ -8,6 +9,7 @@ class Persona(models.Model):
     donador = models.BooleanField()
 
     def get_absolute_url(self):
-        return "/showPersonas/"+str(self.id)+"/" #cada vez que llamamaos a la funcion nos retorna la url:
+        # return "/showPersonas/"+str(self.id)+"/" #cada vez que llamamaos a la funcion nos retorna la url:
                                                     # showPersonas/3/la funcion q se llame
+        return reverse('ver_persona', kwargs={'myID':self.id})
 
