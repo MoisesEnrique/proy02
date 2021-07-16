@@ -35,7 +35,7 @@ class RawPersonaForm(forms.Form):
             }
         )
     )		
-    edad = forms.IntegerField(initial = 20, min_value=20, max_value=30)
+    edad = forms.IntegerField(initial = 20, min_value=20, max_value=60)
     donador = forms.BooleanField(required=False)
 
     def clean_nombres(self, *args, **kwargs):

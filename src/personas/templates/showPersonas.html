@@ -3,7 +3,10 @@
 {% block content %} 
 
 {% for instance in objectList %}
-    <p> {{ instance.id }} {{ instance.nombres }} {{ instance.apellidos }} {{ instance.edad }} años</p>
+    <p> {{ instance.id }} - 
+        <a href='{{ instance.get_absolute_url }}'> {{ instance.nombres }} {{ instance.apellidos }} </a>  
+        {{ instance.edad }} años
+    </p>
 {% endfor %}
 
 {% endblock %} 

@@ -66,7 +66,7 @@ def personasShowObject(request, myID): #recibe el iD
     context = {
         'objeto':obj,
     }
-    return render(request, "showPersonas.html", context)
+    return render(request, "test.html", context)
 
 def personasDeleteView(request, myID):
     obj = get_object_or_404(Persona, id=myID)
