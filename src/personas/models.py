@@ -11,5 +11,5 @@ class Persona(models.Model):
     def get_absolute_url(self):
         # return "/showPersonas/"+str(self.id)+"/" #cada vez que llamamaos a la funcion nos retorna la url:
                                                     # showPersonas/3/la funcion q se llame
-        return reverse('ver_persona', kwargs={'myID':self.id})
+        return reverse('personas:ver_persona', kwargs={'myID':self.id})
 
