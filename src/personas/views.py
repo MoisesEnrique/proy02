@@ -100,5 +100,5 @@ def personasListView(request):
 
 class PersonaListView(ListView):
     model = Persona #el modelo trabaja con el modelo personas, la instancia provendra de aca
-
+    queryset = Persona.objects.filter(edad__lte='25')   #consulta para mostrar los menores de 25
 
