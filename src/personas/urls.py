@@ -8,6 +8,10 @@ from personas.views import personasShowObject
 from personas.views import personasDeleteView
 from personas.views import personasListView
 
+from .views import (
+    PersonaListView,
+)
+
 
 app_name = 'personas'
 urlpatterns = [
@@ -18,5 +22,6 @@ urlpatterns = [
     path('showPersonas/<int:myID>/', personasShowObject, name='ver_persona'), #recibe el parametro ID
     path('showPersonas/<int:myID>/delete/', personasDeleteView, name="eliminar persona"), #eliminar persona #utilizamos show persona pq ya recibe el id, lo ideal seria crear una nueva vista
     path('showPersonas/', personasListView, name="mostrar personas"),
+    path('', PersonaListView.as_view(), name='persona-list'),
 ]
 

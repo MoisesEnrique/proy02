@@ -1,0 +1,16 @@
+{% extends 'base1.html' %}
+{% block title %}
+    Lista de Personas
+{% endblock %}
+
+{% block body %}
+
+    <h1>Lista de Personas</h1>
+    {% for instance in object_list %}
+        <p>
+            {{ instance.id }} - 
+            <a href='{{ instance.get_abdolute_url }}'> {{ instance.nombres }} {{ instance.apellidos }} {{ instance.edad }}</a>
+        </p>
+    {% endfor %}
+{% endblock %}
+

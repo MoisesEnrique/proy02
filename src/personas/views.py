@@ -9,6 +9,11 @@ from .forms import PersonaForm
 #importamos el nuevo formulario plano que creamos
 from .forms import RawPersonaForm
 
+from django.views.generic.list import (
+    ListView,
+
+)
+
 
 
 # Create your views here.
@@ -89,3 +94,11 @@ def personasListView(request):
         'objectList':queryset,
     }
     return render(request, 'showPersonas.html', context)
+
+
+#Creamos una clase para la vista del ListView, tenemos que importarla de django.views.generic.list
+
+class PersonaListView(ListView):
+    model = Persona #el modelo trabaja con el modelo personas, la instancia provendra de aca
+
+
