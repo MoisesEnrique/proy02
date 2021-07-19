@@ -9,12 +9,12 @@ from .forms import PersonaForm
 #importamos el nuevo formulario plano que creamos
 from .forms import RawPersonaForm
 
-from django.views.generic.list import (
+from django.views.generic import (
     ListView,
-
+    DetailView,    
 )
 
-
+from django.urls import reverse
 
 # Create your views here.
 # creamos la vista 
@@ -101,4 +101,9 @@ def personasListView(request):
 class PersonaListView(ListView):
     model = Persona #el modelo trabaja con el modelo personas, la instancia provendra de aca
     queryset = Persona.objects.filter(edad__lte='25')   #consulta para mostrar los menores de 25
+
+class PersonaDetailView(DetailView):
+    model = Persona
+
+
 
