@@ -127,5 +127,7 @@ class PersonaUpdateView(UpdateView):
         'donador',
     ]
 
-
+class PersonaDeleteView(DeleteView):
+    model=Persona
+    success_url = reverse_lazy('personas:persona-list')
 
