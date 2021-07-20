@@ -1,4 +1,5 @@
 from django.shortcuts import get_object_or_404, redirect, render
+from django.urls.base import reverse_lazy
 
 #importamos los modelos de persona
 from .models import Persona
@@ -11,7 +12,10 @@ from .forms import RawPersonaForm
 
 from django.views.generic import (
     ListView,
-    DetailView,    
+    DetailView,
+    CreateView,
+    UpdateView, 
+    DeleteView,
 )
 
 from django.urls import reverse
@@ -100,10 +104,19 @@ def personasListView(request):
 
 class PersonaListView(ListView):
     model = Persona #el modelo trabaja con el modelo personas, la instancia provendra de aca
-    queryset = Persona.objects.filter(edad__lte='25')   #consulta para mostrar los menores de 25
+    queryset = Persona.objects.filter(edad__lte='45')   #consulta para mostrar los menores de 25
 
 class PersonaDetailView(DetailView):
     model = Persona
+
+class PersonaCreateView(CreateView):
+    model=Persona
+    fields = [
+        'nombres',
+        'apellidos',
+        'edad',
+        'donador',
+    ]
 
 
 
