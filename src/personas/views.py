@@ -1,3 +1,4 @@
+from django.http.response import HttpResponse, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls.base import reverse_lazy
 
@@ -16,6 +17,8 @@ from django.views.generic import (
     CreateView,
     UpdateView, 
     DeleteView,
+
+    View,
 )
 
 from django.urls import reverse
@@ -131,3 +134,9 @@ class PersonaDeleteView(DeleteView):
     model=Persona
     success_url = reverse_lazy('personas:persona-list')
 
+class PersonaQueryView(View):
+    def get(self, request, *args, **kwargs): #Definimos la funcion GET
+        #return HttpResponse('<h1>Hola Mundo con clases</h1>')
+
+        queryset = Persona.objects.filter(edad__lte='40')
+        return JsonResponse(list(queryset.values()), safe=False)
