@@ -118,5 +118,14 @@ class PersonaCreateView(CreateView):
         'donador',
     ]
 
+class PersonaUpdateView(UpdateView):
+    model=Persona
+    fields = [
+        'nombres',
+        'apellidos',
+        'edad',
+        'donador',
+    ]
+
 
 
